@@ -37,4 +37,10 @@ public class TodoCardRestControllerImpl implements TodoCardRestController {
         cardService.deleteCard(cardId);
         return ResponseEntity.ok(null);
     }
+
+    @Override
+    public ResponseEntity<Void> setFinished(long cardId) {
+        cardService.setFinished(cardId);
+        return ResponseEntity.ok(null);
+    }
 }

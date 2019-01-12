@@ -20,6 +20,7 @@ public class CardMapperImpl implements CardMapper {
         cardDto.setCardDescription(card.getCardDescription());
         cardDto.setEventCardDateTime(card.getEventCardDateTime().format(formatter));
         cardDto.setId(card.getId());
+        cardDto.setFinished(card.isFinished());
         return cardDto;
     }
 
@@ -30,6 +31,7 @@ public class CardMapperImpl implements CardMapper {
         card.setCardDescription(cardDto.getCardDescription());
         card.setId(cardDto.getId());
         card.setEventCardDateTime(LocalDateTime.parse(cardDto.getEventCardDateTime(),formatter));
+        card.setFinished(false);
         return card;
     }
 }

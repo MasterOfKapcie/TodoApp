@@ -15,4 +15,6 @@ public class CardDto implements Serializable {
     private String eventCardDateTime;
 
     private String cardDescription;
+
+    private boolean isFinished;
 }

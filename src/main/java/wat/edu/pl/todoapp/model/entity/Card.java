@@ -25,4 +25,6 @@ public class Card implements Serializable {
     private LocalDateTime eventCardDateTime;
 
     private String cardDescription;
+
+    private boolean isFinished;
 }

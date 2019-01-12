@@ -8,4 +8,5 @@ public interface CardService {
     void saveCard(CardDto cardDto);
     List<CardDto> getAllCards();
     void deleteCard(long cardId);
+    void setFinished(long cardId);
 }

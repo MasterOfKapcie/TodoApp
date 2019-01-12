@@ -21,4 +21,7 @@ public interface TodoCardRestController {
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/cards/{id}")
     ResponseEntity<Void> deleteCard(@PathVariable("id") long cardId);
+
+    @RequestMapping(method = RequestMethod.DELETE, path="/card/{id}/set-finished")
+    ResponseEntity<Void> setFinished(@PathVariable("id") long cardId);
 }

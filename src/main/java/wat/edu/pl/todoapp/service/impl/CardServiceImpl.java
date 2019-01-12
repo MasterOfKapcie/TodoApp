@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wat.edu.pl.todoapp.model.dto.CardDto;
+import wat.edu.pl.todoapp.model.entity.Card;
 import wat.edu.pl.todoapp.repository.CardRepository;
 import wat.edu.pl.todoapp.service.CardService;
 import wat.edu.pl.todoapp.service.mapper.CardMapper;
@@ -32,5 +33,12 @@ public class CardServiceImpl implements CardService {
     @Override
     public void deleteCard(long cardId) {
         cardRepository.deleteById(cardId);
+    }
+
+    @Override
+    public void setFinished(long cardId) {
+        Card card =  cardRepository.findById(cardId).orElseThrow(() -> new RuntimeException("Could not find card with id: "+cardId));
+        card.setFinished(true);
+        cardRepository.save(card);
     }
 }
