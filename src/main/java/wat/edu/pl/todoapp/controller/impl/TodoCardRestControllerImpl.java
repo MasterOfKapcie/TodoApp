@@ -7,7 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import wat.edu.pl.todoapp.config.MailConfig;
 import wat.edu.pl.todoapp.controller.TodoCardRestController;
+import wat.edu.pl.todoapp.model.Mail;
 import wat.edu.pl.todoapp.model.dto.CardDto;
 import wat.edu.pl.todoapp.service.CardService;
 
@@ -41,6 +43,12 @@ public class TodoCardRestControllerImpl implements TodoCardRestController {
     @Override
     public ResponseEntity<Void> setFinished(long cardId) {
         cardService.setFinished(cardId);
+        return ResponseEntity.ok(null);
+    }
+
+    @Override
+    public ResponseEntity<Void> wyslijMail(@RequestBody Mail mail) {
+        MailConfig.send(mail.getRecipient() ,mail.getText());
         return ResponseEntity.ok(null);
     }
 }

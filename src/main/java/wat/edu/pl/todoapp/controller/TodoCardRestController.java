@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import wat.edu.pl.todoapp.model.Mail;
 import wat.edu.pl.todoapp.model.dto.CardDto;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public interface TodoCardRestController {
 
     @RequestMapping(method = RequestMethod.DELETE, path="/card/{id}/set-finished")
     ResponseEntity<Void> setFinished(@PathVariable("id") long cardId);
+
+    @RequestMapping(path = "/mail", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    ResponseEntity<Void> wyslijMail(@RequestBody Mail mail);
 }
